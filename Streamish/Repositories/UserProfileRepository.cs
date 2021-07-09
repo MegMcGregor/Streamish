@@ -23,7 +23,7 @@ namespace Streamish.Repositories
                     up.Id,
 	                up.Name, 
 	                up.Email, 
-	                up.DateCreated
+	                up.DateCreated,
                     up.ImageUrl
                    FROM UserProfile up
                    ";
@@ -64,10 +64,10 @@ namespace Streamish.Repositories
                     up.Id,
 	                up.Name, 
 	                up.Email, 
-	                up.DateCreated
+	                up.DateCreated,
                     up.ImageUrl
                    FROM UserProfile up
-                   WHERE v.Id = @id";
+                   WHERE up.Id = @id";
 
                     DbUtils.AddParameter(cmd, "@Id", id);
                     var reader = cmd.ExecuteReader();
@@ -127,7 +127,7 @@ namespace Streamish.Repositories
                            SET Name = @Name,
                                Email = @Email,
                                DateCreated = @DateCreated,
-                               ImageUrl = @ImageUrl,
+                               ImageUrl = @ImageUrl
                          WHERE Id = @Id";
 
                     DbUtils.AddParameter(cmd, "@Name", userProfile.Name);
