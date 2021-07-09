@@ -230,9 +230,9 @@ namespace Streamish.Repositories
                  up.Email,
                  up.ImageUrl as UserProfileImageUrl,
                  up.DateCreated AS UserProfileDateCreated
-               FROM Video v
-               JOIN UserProfile up ON v.UserProfileId = up.Id
-               WHERE v.Id = @id";
+                FROM Video v
+                JOIN UserProfile up ON v.UserProfileId = up.Id
+                WHERE v.Id = @id";
 
                     DbUtils.AddParameter(cmd, "@Id", id);
 
