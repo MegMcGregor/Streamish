@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getAllVideos } from "../modules/videoManager";
+import { getWithComments } from "../modules/videoManager";
 import Video from './Video';
-
 
 const VideoList = () => {
     const [videos, setVideos] = useState([]);
 
     const getVideos = () => {
-        getAllVideos().then(videos => setVideos(videos));
+        getWithComments().then(videos => setVideos(videos));
     };
 
     useEffect(() => {
