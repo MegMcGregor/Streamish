@@ -10,6 +10,11 @@ export const getWithComments = () => {
         .then((res) => res.json())
 };
 
+export const searchVideos = (search) => {
+    return fetch(`${baseUrl}/search?q=${search}&sortDesc=true`)
+        .then((res) => res.json())
+};
+
 export const addVideo = (video) => {
     return fetch(baseUrl, {
         method: "POST",
