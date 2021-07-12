@@ -71,5 +71,19 @@ namespace Streamish.Controllers
             _videoRepository.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("search")]
+        public IActionResult Search(string q, bool sortDesc)
+        {
+            return Ok(_videoRepository.Search(q, sortDesc));
+        }
+
+        [HttpGet("byDateTime")]
+        public IActionResult SearchByDate(string date, bool sortDesc)
+        {
+            DateTime dt = DateTime.Parse(date);
+            return Ok(_videoRepository.SearchByDate(dt, sortDesc));
+        }
+
     }
 }
